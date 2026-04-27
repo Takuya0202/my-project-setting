@@ -33,13 +33,14 @@ my-project-setting/
     │   ├── nuxt/
     │   └── ...
     └── agent/                     # AIエージェント設定テンプレート
-        ├── skills/
-        │   ├── common/            # 汎用スキル（.env制御、push制御、コミット規約等）
-        │   ├── react/             # React専用スキル
-        │   └── ...
-        ├── rules/
-        │   ├── common/            # 汎用ルール
-        │   └── ...
+        ├── README.md              # 使い方・配置されるファイルの説明
+        ├── AGENTS.md              # AI向けアーキテクチャ説明
+        ├── CLAUDE.md              # AGENTS.mdと同期
+        ├── .cursor/               # Cursor向け設定（ターゲットの .cursor/ にミラー配置）
+        │   └── rules/
+        │       ├── coding.mdc
+        │       ├── git.mdc
+        │       └── security.mdc
         └── install.sh             # curl経由で実行する配布スクリプト
 ```
 
@@ -75,15 +76,10 @@ my-project-setting/
 
 #### AIエージェント設定（`templates/agent/`）
 
-- AIエージェント（Claude Code, Cursor等）向けのskillsとrulesのテンプレートを管理する
-- `install.sh`でプロジェクトの`.claude/`や`.cursor/`に展開する
-- skills
-  - フレームワーク専用スキル（React等）など、特定の技術領域に特化した知識・手順を定義する
-- rules
-  - プロジェクト共通の行動規約・制約を定義する。カテゴリ別にファイルを分割して管理する
-  - `security.mdc`: `.env`読み込み禁止、シークレット・認証情報の扱い
-  - `git.mdc`: push制御、コミットメッセージ英語、Co-authored-by付与、破壊的操作の禁止
-  - `coding.mdc`: 既存規約への追従、変更スコープの制限、自明コメントの禁止
+- AIエージェント（Cursor等）向けの汎用設定テンプレートを管理する
+- テンプレートはターゲットプロジェクトのディレクトリ構造をミラーして配置する（例: `templates/agent/.cursor/` → `.cursor/`）
+- `install.sh` でプロジェクトに展開する。既存ファイルはスキップする
+- 詳細は `templates/agent/AGENTS.md` を参照
 
 ## 方針
 

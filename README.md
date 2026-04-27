@@ -45,34 +45,23 @@ my-project-setting/
     │   ├── nuxt/
     │   └── ...
     └── agent/                     # AIエージェント設定テンプレート
-        ├── skills/
-        │   ├── common/            # 汎用スキル（.env制御、push制御、コミット規約等）
-        │   ├── react/             # React専用スキル
-        │   └── ...
-        ├── rules/
-        │   ├── common/            # 汎用ルール
-        │   └── ...
+        ├── README.md              # 使い方・配置されるファイルの説明
+        ├── AGENTS.md              # AI向けアーキテクチャ説明
+        ├── CLAUDE.md              # AGENTS.mdと同期
+        ├── .cursor/               # Cursor向け設定（ターゲットの .cursor/ にミラー配置）
+        │   └── rules/
+        │       ├── coding.mdc
+        │       ├── git.mdc
+        │       └── security.mdc
         └── install.sh             # curl経由で実行する配布スクリプト
 ```
 
 ## agent
 
-AIエージェント（Claude Code, Cursor等）向けのskillsやrulesを管理する。
-`templates/agent/`配下に配置し、`install.sh`でプロジェクトの`.claude/`や`.cursor/`に展開する。
+AIエージェント（Cursor等）向けの汎用設定テンプレートを管理する。
+テンプレートはターゲットプロジェクトのディレクトリ構造をミラーしており、`install.sh`で展開する。
 
-### skills
-
-フレームワーク専用のスキル（React等）など、特定の技術領域に特化した知識・手順を定義する。
-
-### rules
-
-プロジェクト共通の行動規約・制約を定義する。ルールはカテゴリ別にファイルを分割して管理する。
-
-| ファイル | 内容 |
-|---|---|
-| `security.mdc` | `.env`読み込み禁止、シークレット・認証情報の扱い |
-| `git.mdc` | push制御、コミットメッセージ英語、Co-authored-by付与、破壊的操作の禁止 |
-| `coding.mdc` | 既存規約への追従、変更スコープの制限、自明コメントの禁止 |
+詳細は [templates/agent/README.md](templates/agent/README.md) を参照。
 
 ## 方針
 
