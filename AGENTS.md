@@ -12,7 +12,10 @@ my-project-setting/
 ├── README.md                      # 全体概要・方針・ディレクトリ構成
 ├── AGENTS.md                      # AI向けガイドライン
 ├── CLAUDE.md                      # AI向けガイドライン（AGENTS.mdと同期）
-├── setup/                         # セットアップ系（手順ドキュメント）
+├── setup/                         # セットアップ系
+│   ├── ide/
+│   │   ├── README.md              # IDE設定の方針・対象IDE・含める設定の説明
+│   │   └── settings.json          # VSCode/Cursor用の汎用設定
 │   ├── node/
 │   │   └── README.md              # nvm + direnvのインストール・設定手順
 │   └── ...
@@ -36,12 +39,19 @@ my-project-setting/
 
 ### 1. セットアップ系（`setup/`）
 
-- 環境構築の手順をドキュメントとして記載する（自動化スクリプトではない）
-- 自分の環境の再現性を保つための備忘録としての位置づけ
+- 自分の環境の再現性を保つための情報を管理する
 - 「目的」単位でディレクトリを分ける（ツール単位ではない）
   - 例: `setup/node/` にnvm + direnvの手順をまとめる（`setup/nvm/` と `setup/direnv/` には分けない）
-- 基本的に各ディレクトリの`README.md`で完結させ、コマンドベースで再現可能にする
+- 手順ドキュメント（備忘録）と、汎用的な設定ファイルの2種類が含まれる
+  - `setup/node/` — ドキュメント。各ディレクトリの`README.md`にコマンドベースで再現可能な手順を記載
+  - `setup/ide/` — 設定ファイル。汎用的なIDE設定（`settings.json`等）を直接管理
 - 対応OS: macOS, Linux(WSL2)
+
+#### IDE設定（`setup/ide/`）
+
+- VSCode / Cursor 向けの汎用設定を `settings.json` として管理する（IntelliJは将来対応）
+- 含めるもの: エンコーディング、改行コード、末尾空白除去、保存時フォーマット、ファイルネスティング、JS/TSインポート設定等
+- 含めないもの: テーマ、フォント、キーバインド、UIレイアウト、言語別フォーマッター（テンプレート側で設定）、特定拡張機能に依存する設定
 
 ### 2. プロジェクト系（`templates/`）
 
@@ -54,7 +64,8 @@ my-project-setting/
 
 ## 方針
 
-- 個人環境に依存する設定は含めない（`settings.json`, `zshrc`, `bashrc`等）
+- 個人環境に依存する設定は含めない（`zshrc`, `bashrc`, テーマ, フォント等）
+- ただし汎用的なIDE設定（エンコーディング、改行コード、保存時フォーマット等）は`setup/ide/`で管理する
 - フォーマッター等はプロジェクトごとに`.vscode/settings.json`, `.prettierrc`で定義
 - nodeのバージョン管理は`nvm` + `direnv`（`.nvmrc` + `.envrc`）
 
