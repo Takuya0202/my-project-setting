@@ -1,0 +1,17 @@
+---
+description: Security rules for AI agents
+globs:
+alwaysApply: true
+---
+
+# Security Rules
+
+## .env files
+
+Never read, display, or reference `.env` files or their contents.
+These files may contain secrets and sensitive credentials.
+
+## Secrets and credentials
+
+Do not include API keys, tokens, passwords, or other secrets in code or commit messages.
+Do not read or reference credential files such as `.npmrc`, `credentials.json`, or similar.

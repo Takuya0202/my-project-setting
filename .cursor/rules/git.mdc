@@ -1,0 +1,28 @@
+---
+description: Git rules for AI agents
+globs:
+alwaysApply: true
+---
+
+# Git Rules
+
+## Push
+
+Do not push to GitHub unless the user explicitly instructs you to do so.
+Warn the user before pushing directly to the main branch.
+
+## Destructive operations
+
+Never use `--force` push, `--hard` reset, or other destructive/irreversible git commands unless the user explicitly requests them.
+
+## Commit messages
+
+Write all commit messages in English.
+
+## Co-authored-by
+
+When creating a git commit, always append the following trailer to the commit message:
+
+```
+Co-authored-by: cursor <noreply@cursor.com>
+```

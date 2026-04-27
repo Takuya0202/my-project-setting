@@ -1,0 +1,19 @@
+---
+description: General coding rules for AI agents
+globs:
+alwaysApply: true
+---
+
+# Coding Rules
+
+## Follow existing conventions
+
+Follow the existing code style, naming conventions, and patterns in the project.
+
+## Scope of changes
+
+Do not edit files that are unrelated to the current task.
+
+## Comments
+
+Do not add obvious or redundant comments that merely restate what the code does.
