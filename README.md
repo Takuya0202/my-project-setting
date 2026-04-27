@@ -13,6 +13,31 @@
     ここで定義したものは`curl`を通じてどこでも作成できるよう、シェルスクリプトを定義しておく。
     1同様に、ここでもzsh,bashrcの2つのosに対応できるようにする。
 
+## ディレクトリ構成
+
+```
+my-project-setting/
+├── README.md                      # 全体概要・方針・ディレクトリ構成
+├── AGENTS.md                      # AI向けガイドライン
+├── CLAUDE.md                      # AI向けガイドライン（AGENTS.mdと同期）
+├── setup/                         # セットアップ系（手順ドキュメント）
+│   ├── node/
+│   │   └── README.md              # nvm + direnvのインストール・設定手順
+│   └── ...
+└── templates/                     # プロジェクト系（テンプレート + 配布スクリプト）
+    ├── react/
+    │   ├── AGENTS.md              # React テンプレートのアーキテクチャ説明
+    │   ├── CLAUDE.md              # AGENTS.mdと同期
+    │   ├── install.sh             # curl経由で実行する配布スクリプト
+    │   ├── .eslintrc.js
+    │   ├── .prettierrc
+    │   └── .vscode/settings.json
+    ├── vue/
+    ├── next/
+    ├── nuxt/
+    └── ...
+```
+
 ## 方針
 基本的に個人の環境に依存するような設定はしないようにする。
 e.g. : `settings.json`や`zshrc`,`bashrc`などの設定。
@@ -22,7 +47,8 @@ e.g. : `settings.json`や`zshrc`,`bashrc`などの設定。
 ### linter,eslint系
 フォーマッター等に関しては`.vscode/settings.json,.prettierrc`などプロジェクトごとに定義する。
 これらの汎用的なセットアップは`curl`を通じてプロジェクトに配置できるように設定する。
+テンプレートはフレームワーク別（React, Vue, Next, Nuxt等）に用意し、各フレームワークに適したeslint pluginや設定を含める。
 
 ### node
 nodeのバージョン管理には`nvm`と`direnv`を使用する。
-各プロジェクトごとに`.nvmrc`と`envrc`を設定し、チームの開発環境を統合させる。
+各プロジェクトごとに`.nvmrc`と`.envrc`を設定し、チームの開発環境を統合させる。
