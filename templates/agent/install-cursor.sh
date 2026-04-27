@@ -3,7 +3,7 @@
 # Cursor向け汎用ルールのインストールスクリプト
 #
 # 使い方:
-#   curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-cursor.sh | sh
 #
 # 概要:
 #   プロジェクトの .cursor/rules/ に汎用ルールファイル（.mdc）を配置する。

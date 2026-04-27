@@ -48,18 +48,27 @@ my-project-setting/
         ├── README.md              # 使い方・配置されるファイルの説明
         ├── AGENTS.md              # AI向けアーキテクチャ説明
         ├── CLAUDE.md              # AGENTS.mdと同期
-        ├── .cursor/               # Cursor向け設定（ターゲットの .cursor/ にミラー配置）
+        ├── .cursor/               # Cursor向け設定（ミラー配置）
         │   └── rules/
         │       ├── coding.mdc
         │       ├── git.mdc
         │       └── security.mdc
-        └── install.sh             # curl経由で実行する配布スクリプト
+        ├── .claude/               # Claude Code向け設定（ミラー配置）
+        │   └── rules/
+        │       ├── coding.md
+        │       ├── git.md
+        │       └── security.md
+        ├── codex/                 # Codex向け設定（AGENTS.md競合回避）
+        │   └── AGENTS.md
+        ├── install-cursor.sh
+        ├── install-claude.sh
+        └── install-codex.sh
 ```
 
 ## agent
 
-AIエージェント（Cursor等）向けの汎用設定テンプレートを管理する。
-テンプレートはターゲットプロジェクトのディレクトリ構造をミラーしており、`install.sh`で展開する。
+AIエージェント（Cursor, Claude Code, Codex）向けの汎用設定テンプレートを管理する。
+ミラー方式で各ツールの設定を保持し、`install-<tool>.sh`で展開する。
 
 詳細は [templates/agent/README.md](templates/agent/README.md) を参照。
 

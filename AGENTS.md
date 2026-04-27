@@ -36,12 +36,21 @@ my-project-setting/
         ├── README.md              # 使い方・配置されるファイルの説明
         ├── AGENTS.md              # AI向けアーキテクチャ説明
         ├── CLAUDE.md              # AGENTS.mdと同期
-        ├── .cursor/               # Cursor向け設定（ターゲットの .cursor/ にミラー配置）
+        ├── .cursor/               # Cursor向け設定（ミラー配置）
         │   └── rules/
         │       ├── coding.mdc
         │       ├── git.mdc
         │       └── security.mdc
-        └── install.sh             # curl経由で実行する配布スクリプト
+        ├── .claude/               # Claude Code向け設定（ミラー配置）
+        │   └── rules/
+        │       ├── coding.md
+        │       ├── git.md
+        │       └── security.md
+        ├── codex/                 # Codex向け設定（AGENTS.md競合回避）
+        │   └── AGENTS.md
+        ├── install-cursor.sh
+        ├── install-claude.sh
+        └── install-codex.sh
 ```
 
 ## カテゴリ
@@ -76,9 +85,10 @@ my-project-setting/
 
 #### AIエージェント設定（`templates/agent/`）
 
-- AIエージェント（Cursor等）向けの汎用設定テンプレートを管理する
-- テンプレートはターゲットプロジェクトのディレクトリ構造をミラーして配置する（例: `templates/agent/.cursor/` → `.cursor/`）
-- `install.sh` でプロジェクトに展開する。既存ファイルはスキップする
+- AIエージェント（Cursor, Claude Code, Codex）向けの汎用設定テンプレートを管理する
+- ミラー方式で各ツールの設定を保持し（`.cursor/`, `.claude/`）、`install-<tool>.sh`で展開する
+- Codexのみ `AGENTS.md` がテンプレートドキュメントと競合するため `codex/` サブディレクトリに格納する
+- 既存ファイルはスキップする
 - 詳細は `templates/agent/AGENTS.md` を参照
 
 ## 方針
