@@ -32,19 +32,47 @@ my-project-setting/
 │   │   └── README.md              # nvm + direnvのインストール・設定手順
 │   └── ...
 └── templates/                     # プロジェクト系（テンプレート + 配布スクリプト）
-    └── frontend/                  # フロントエンド系テンプレート
-        ├── react/
-        │   ├── AGENTS.md          # React テンプレートのアーキテクチャ説明
-        │   ├── CLAUDE.md          # AGENTS.mdと同期
-        │   ├── install.sh         # curl経由で実行する配布スクリプト
-        │   ├── .eslintrc.js
-        │   ├── .prettierrc
-        │   └── .vscode/settings.json
-        ├── vue/
-        ├── next/
-        ├── nuxt/
-        └── ...
+    ├── frontend/                  # フロントエンド系テンプレート
+    │   ├── react/
+    │   │   ├── AGENTS.md          # React テンプレートのアーキテクチャ説明
+    │   │   ├── CLAUDE.md          # AGENTS.mdと同期
+    │   │   ├── install.sh         # curl経由で実行する配布スクリプト
+    │   │   ├── .eslintrc.js
+    │   │   ├── .prettierrc
+    │   │   └── .vscode/settings.json
+    │   ├── vue/
+    │   ├── next/
+    │   ├── nuxt/
+    │   └── ...
+    └── agent/                     # AIエージェント設定テンプレート
+        ├── skills/
+        │   ├── common/            # 汎用スキル（.env制御、push制御、コミット規約等）
+        │   ├── react/             # React専用スキル
+        │   └── ...
+        ├── rules/
+        │   ├── common/            # 汎用ルール
+        │   └── ...
+        └── install.sh             # curl経由で実行する配布スクリプト
 ```
+
+## agent
+
+AIエージェント（Claude Code, Cursor等）向けのskillsやrulesを管理する。
+`templates/agent/`配下に配置し、`install.sh`でプロジェクトの`.claude/`や`.cursor/`に展開する。
+
+### skills
+
+フレームワーク専用のスキル（React等）など、特定の技術領域に特化した知識・手順を定義する。
+
+### rules
+
+プロジェクト共通の行動規約・制約を定義する。
+
+汎用ルールの例:
+- `.env`ファイルを読み込まない
+- 明示的な指示がない限りGitHubへpushしない
+- コミットメッセージは英語で記述する
+- エージェントからのコミットには`Co-authored-by`トレーラーを付与する
 
 ## 方針
 
