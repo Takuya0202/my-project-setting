@@ -1,19 +1,19 @@
 ---
-description: General coding rules for AI agents
+description: コーディング全般に関するルール
 globs:
 alwaysApply: true
 ---
 
-# Coding Rules
+# コーディングルール
 
-## Follow existing conventions
+## 既存規約への追従
 
-Follow the existing code style, naming conventions, and patterns in the project.
+プロジェクト内の既存のコードスタイル、命名規則、パターンに従うこと。
 
-## Scope of changes
+## 変更スコープの制限
 
-Do not edit files that are unrelated to the current task.
+現在のタスクに無関係なファイルを編集してはならない。
 
-## Comments
+## コメント
 
-Do not add obvious or redundant comments that merely restate what the code does.
+コードの内容をそのまま繰り返すだけの自明・冗長なコメントを追加してはならない。

@@ -1,27 +1,27 @@
 ---
-description: Git rules for AI agents
+description: Git操作に関するルール
 globs:
 alwaysApply: true
 ---
 
-# Git Rules
+# Gitルール
 
 ## Push
 
-Do not push to GitHub unless the user explicitly instructs you to do so.
-Warn the user before pushing directly to the main branch.
+ユーザーから明示的な指示がない限り、GitHubへpushしてはならない。
+mainブランチへ直接pushする場合は、事前にユーザーへ警告すること。
 
-## Destructive operations
+## 破壊的操作
 
-Never use `--force` push, `--hard` reset, or other destructive/irreversible git commands unless the user explicitly requests them.
+`--force` push、`--hard` reset等の破壊的・不可逆なgitコマンドは、ユーザーから明示的に要求されない限り使用してはならない。
 
-## Commit messages
+## コミットメッセージ
 
-Write all commit messages in English.
+コミットメッセージは英語で記述すること。
 
 ## Co-authored-by
 
-When creating a git commit, always append the following trailer to the commit message:
+gitコミットを作成する際は、必ず以下のトレーラーをコミットメッセージの末尾に付与すること:
 
 ```
 Co-authored-by: cursor <noreply@cursor.com>
