@@ -20,17 +20,18 @@ my-project-setting/
 │   │   └── README.md              # nvm + direnvのインストール・設定手順
 │   └── ...
 └── templates/                     # プロジェクト系（テンプレート + 配布スクリプト）
-    ├── react/
-    │   ├── AGENTS.md              # React テンプレートのアーキテクチャ説明
-    │   ├── CLAUDE.md              # AGENTS.mdと同期
-    │   ├── install.sh             # curl経由で実行する配布スクリプト
-    │   ├── .eslintrc.js
-    │   ├── .prettierrc
-    │   └── .vscode/settings.json
-    ├── vue/
-    ├── next/
-    ├── nuxt/
-    └── ...
+    └── frontend/                  # フロントエンド系テンプレート
+        ├── react/
+        │   ├── AGENTS.md          # React テンプレートのアーキテクチャ説明
+        │   ├── CLAUDE.md          # AGENTS.mdと同期
+        │   ├── install.sh         # curl経由で実行する配布スクリプト
+        │   ├── .eslintrc.js
+        │   ├── .prettierrc
+        │   └── .vscode/settings.json
+        ├── vue/
+        ├── next/
+        ├── nuxt/
+        └── ...
 ```
 
 ## カテゴリ
@@ -55,10 +56,11 @@ my-project-setting/
 
 ### 2. プロジェクト系（`templates/`）
 
-- frontend用の設定など汎用的なテンプレートを提供する
-- `curl`経由の`install.sh`でどこからでも取得・配置できるようにする
-- テンプレートはフレームワーク別（React, Vue, Next, Nuxt等）にディレクトリを分ける
+- 汎用的なテンプレートを提供する
+- テンプレートは用途別（`frontend/`等）にグループ化し、さらにフレームワーク別にディレクトリを分ける
+  - 例: `templates/frontend/react/`, `templates/frontend/vue/`
   - 各フレームワークに適したeslint plugin等の設定を含める
+- `curl`経由の`install.sh`でどこからでも取得・配置できるようにする
 - `install.sh`実行時、ユーザー側にはフラットにファイルが生成される（内部構造は意識させない）
 - 複数ファイルで構成されるテンプレートには、個別の`AGENTS.md`と`CLAUDE.md`を置いてアーキテクチャを説明できる
 
