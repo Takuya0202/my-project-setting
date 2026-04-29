@@ -20,7 +20,7 @@ mkdir -p "$RULES_DIR"
 installed=0
 skipped=0
 
-for file in coding.md git.md security.md; do
+for file in coding.md git.md security.md commands.md; do
   dest="$RULES_DIR/$file"
 
   if [ -f "$dest" ]; then
