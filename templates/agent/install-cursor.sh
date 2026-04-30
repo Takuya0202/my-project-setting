@@ -1,12 +1,13 @@
 #!/bin/sh
 #
-# Cursor向け汎用ルールのインストールスクリプト
+# Cursor向け汎用ルール・スキルのインストールスクリプト
 #
 # 使い方:
 #   curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-cursor.sh | sh
 #
 # 概要:
 #   プロジェクトの .cursor/rules/ に汎用ルールファイル（.mdc）を配置する。
+#   プロジェクトの .cursor/skills/ に汎用スキルファイル（SKILL.md）を配置する。
 #   既に同名ファイルが存在する場合はスキップする。
 #
 
@@ -28,6 +29,20 @@ for file in coding.mdc git.mdc security.mdc commands.mdc; do
     skipped=$((skipped + 1))
   else
     curl -fsSL "$BASE_URL/.cursor/rules/$file" -o "$dest"
+    echo "[created] $dest"
+    installed=$((installed + 1))
+  fi
+done
+
+for skill in commit pr; do
+  mkdir -p ".cursor/skills/$skill"
+  dest=".cursor/skills/$skill/SKILL.md"
+
+  if [ -f "$dest" ]; then
+    echo "[skip] $dest (already exists)"
+    skipped=$((skipped + 1))
+  else
+    curl -fsSL "$BASE_URL/.cursor/skills/$skill/SKILL.md" -o "$dest"
     echo "[created] $dest"
     installed=$((installed + 1))
   fi

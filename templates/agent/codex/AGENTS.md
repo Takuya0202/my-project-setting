@@ -76,3 +76,33 @@ Co-authored-by: codex <noreply@openai.com>
 ### システム操作
 
 `shutdown`、`reboot`、`systemctl stop` 等のシステム全体に影響するコマンドは実行してはならない。
+
+## ワークフロー
+
+### コミット（/commit）
+
+ステージされた変更を確認し、conventional commits形式でコミットを作成する。
+
+1. `git diff --staged` で変更内容を確認する
+2. 変更の種別（feat / fix / refactor / docs / chore 等）を判断する
+3. コミットメッセージを英語で1行（最長72文字）で作成する
+4. `git commit -m "..."` を実行する（Co-authored-byは自動付与）
+
+### PR説明文（/pr）
+
+現在のブランチの変更をもとにPull Requestの説明文を作成する。
+
+1. `git log main..HEAD --oneline` でコミット一覧を確認する
+2. `git diff main...HEAD` で差分全体を把握する
+3. 以下の形式でPR説明文を出力する:
+
+```
+## Summary
+- （変更の概要を箇条書き）
+
+## Changes
+- （具体的な変更点を箇条書き）
+
+## Test plan
+- （確認すべきことを箇条書き）
+```
