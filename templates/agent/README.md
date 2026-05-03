@@ -30,7 +30,7 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 | 配置先 | 内容 |
 |---|---|
 | `.cursor/rules/security.mdc` | `.env`読み込み禁止、シークレット・認証情報の扱い |
-| `.cursor/rules/git.mdc` | push制御、コミットメッセージ英語、Co-authored-by付与、破壊的操作の禁止 |
+| `.cursor/rules/git.mdc` | push制御、コミットメッセージ英語、破壊的操作の禁止 |
 | `.cursor/rules/coding.mdc` | 既存規約への追従、変更スコープの制限、自明コメントの禁止 |
 | `.cursor/rules/commands.mdc` | 破壊的シェルコマンド・特権昇格・グローバルインストール・システム操作の禁止 |
 | `.cursor/skills/commit/SKILL.md` | ステージされた変更をconventional commits形式でコミットする |
@@ -61,7 +61,7 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 | 配置先 | 内容 |
 |---|---|
 | `.claude/rules/security.md` | `.env`読み込み禁止、シークレット・認証情報の扱い |
-| `.claude/rules/git.md` | push制御、コミットメッセージ英語、Co-authored-by付与、破壊的操作の禁止 |
+| `.claude/rules/git.md` | push制御、コミットメッセージ英語、破壊的操作の禁止 |
 | `.claude/rules/coding.md` | 既存規約への追従、変更スコープの制限、自明コメントの禁止 |
 | `.claude/rules/commands.md` | 破壊的シェルコマンド・特権昇格・グローバルインストール・システム操作の禁止 |
 | `.claude/skills/commit/SKILL.md` | ステージされた変更をconventional commits形式でコミットする |

@@ -42,14 +42,6 @@ mainブランチへ直接pushする場合は、事前にユーザーへ警告す
 コミットメッセージは英語で記述すること。
 内容を要約し、最長でも3行程度に収めること。変更のすべてを網羅する必要はない。
 
-### Co-authored-by
-
-gitコミットを作成する際は、必ず以下のトレーラーをコミットメッセージの末尾に付与すること:
-
-```
-Co-authored-by: codex <noreply@openai.com>
-```
-
 ## コマンド実行ルール
 
 ### ファイルシステムの破壊的操作
@@ -86,7 +78,7 @@ Co-authored-by: codex <noreply@openai.com>
 1. `git diff --staged` で変更内容を確認する
 2. 変更の種別（feat / fix / refactor / docs / chore 等）を判断する
 3. コミットメッセージを英語で1行（最長72文字）で作成する
-4. `git commit -m "..."` を実行する（Co-authored-byは自動付与）
+4. `git commit -m "..."` を実行する
 
 ### PR説明文（/pr）
 
