@@ -13,6 +13,7 @@
 | ディレクトリ | 対象 |
 |---|---|
 | `spring/` | Spring Boot（Gradle）プロジェクト |
+| `docker-compose/` | Docker Compose プロジェクト |
 
 ## 構成
 
