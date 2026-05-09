@@ -1,6 +1,6 @@
 # my-project-setting
 
-開発環境についてのメモ
+開発環境について再現性を持たせるためのプロジェクト
 
 ## 概要
 
@@ -30,6 +30,9 @@ my-project-setting/
 │   │   └── settings.json          # VSCode/Cursor用の汎用設定
 │   ├── node/
 │   │   └── README.md              # nvm + direnvのインストール・設定手順
+│   ├── ghostty/
+│   │   ├── README.md              # Ghosttyのインストール・設定手順
+│   │   └── config                 # Ghostty設定ファイル
 │   └── ...
 └── templates/                     # プロジェクト系（テンプレート + 配布スクリプト）
     ├── frontend/                  # フロントエンド系テンプレート
