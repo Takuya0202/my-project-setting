@@ -1,6 +1,4 @@
 {
-  "workbench.iconTheme": "catppuccin-macchiato",
-  "workbench.activityBar.orientation": "vertical",
   "files.encoding": "utf8",
   "files.eol": "\n",
   "files.trimTrailingWhitespace": true,
@@ -17,11 +15,14 @@
   "explorer.fileNesting.enabled": false,
   "git.suggestSmartCommit": false,
   "git.confirmSync": false,
-  "javascript.suggest.autoImports": true,
-  "typescript.suggest.autoImports": true,
-  "javascript.preferences.importModuleSpecifier": "shortest",
-  "typescript.preferences.importModuleSpecifier": "shortest",
-  "javascript.preferences.importModuleSpecifierEnding": "minimal",
-  "typescript.preferences.importModuleSpecifierEnding": "minimal",
-  "workbench.colorTheme": "Default Dark+"
+  "js/ts.suggest.autoImports": true,
+  "js/ts.preferences.importModuleSpecifier": "shortest",
+  "js/ts.preferences.importModuleSpecifierEnding": "minimal",
+  "workbench.colorTheme": "Default Dark+",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }

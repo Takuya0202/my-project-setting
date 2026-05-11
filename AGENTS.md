@@ -15,7 +15,10 @@ my-project-setting/
 ├── setup/                         # セットアップ系
 │   ├── ide/
 │   │   ├── README.md              # IDE設定の方針・対象IDE・含める設定の説明
-│   │   └── settings.json          # VSCode/Cursor用の汎用設定
+│   │   ├── cursor/
+│   │   │   └── settings.json      # Cursor用の汎用設定
+│   │   └── vscode/
+│   │       └── settings.json      # VSCode用の汎用設定（Copilot設定を含む）
 │   ├── node/
 │   │   └── README.md              # nvm + direnvのインストール・設定手順
 │   └── ...
@@ -69,7 +72,7 @@ my-project-setting/
 
 #### IDE設定（`setup/ide/`）
 
-- VSCode / Cursor 向けの汎用設定を `settings.json` として管理する（IntelliJは将来対応）
+- VSCode / Cursor 向けの汎用設定をツール別ディレクトリ（`cursor/`, `vscode/`）で管理する（IntelliJは将来対応）
 - 含めるもの: エンコーディング、改行コード、末尾空白除去、保存時フォーマット、ファイルネスティング、JS/TSインポート設定等
 - 含めないもの: テーマ、フォント、キーバインド、UIレイアウト、言語別フォーマッター（テンプレート側で設定）、特定拡張機能に依存する設定
 

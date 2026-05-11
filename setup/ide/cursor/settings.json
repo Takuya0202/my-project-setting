@@ -1,0 +1,24 @@
+{
+  "workbench.iconTheme": "catppuccin-macchiato",
+  "workbench.activityBar.orientation": "vertical",
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "editor.autoClosingBrackets": "always",
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.renderWhitespace": "boundary",
+  "explorer.fileNesting.enabled": false,
+  "git.suggestSmartCommit": false,
+  "git.confirmSync": false,
+  "js/ts.suggest.autoImports": true,
+  "js/ts.preferences.importModuleSpecifier": "shortest",
+  "js/ts.preferences.importModuleSpecifierEnding": "minimal",
+  "workbench.colorTheme": "Default Dark+"
+}
