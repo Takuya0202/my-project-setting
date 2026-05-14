@@ -9,6 +9,7 @@
 # 概要:
 #   プロジェクトの .cursor/rules/ に汎用ルールファイル（.mdc）を配置する。
 #   プロジェクトの .cursor/skills/ に汎用スキルファイル（SKILL.md）を配置する。
+#   プロジェクトの .cursor/cli.json に権限設定を配置する。
 #   既に同名ファイルが存在する場合はスキップする（--force で上書き）。
 #
 
@@ -50,6 +51,8 @@ done
 for skill in commit pr; do
   install_file "$BASE_URL/.cursor/skills/$skill/SKILL.md" ".cursor/skills/$skill/SKILL.md"
 done
+
+install_file "$BASE_URL/.cursor/cli.json" ".cursor/cli.json"
 
 echo ""
 echo "Done: $installed installed, $skipped skipped"

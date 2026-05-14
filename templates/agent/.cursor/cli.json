@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(npm)",
+      "Shell(yarn)",
+      "Shell(pnpm)",
+      "Shell(git status)",
+      "Shell(git diff)",
+      "Shell(git log)",
+      "Shell(git branch)",
+      "Shell(git fetch)",
+      "Shell(git pull)",
+      "Shell(git commit)",
+      "Shell(git add)",
+      "Shell(ls)",
+      "Shell(find)",
+      "Shell(grep)",
+      "Shell(which)",
+      "Shell(pwd)",
+      "Shell(date)"
+    ],
+    "deny": [
+      "Shell(git add .)",
+      "Shell(git add -A)",
+      "Shell(git push -f)",
+      "Shell(git push --force)",
+      "Shell(git reset --hard)",
+      "Shell(sudo)",
+      "Shell(npm publish)",
+      "Read(.env)",
+      "Read(.env.*)",
+      "Write(.env)",
+      "Write(.env.*)"
+    ]
+  }
+}

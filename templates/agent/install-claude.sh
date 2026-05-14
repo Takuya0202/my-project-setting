@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Claude Code向け汎用ルール・スキルのインストールスクリプト
+# Claude Code向け汎用ルール・スキル・設定のインストールスクリプト
 #
 # 使い方:
 #   curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-claude.sh | sh
@@ -9,6 +9,7 @@
 # 概要:
 #   プロジェクトの .claude/rules/ に汎用ルールファイル（.md）を配置する。
 #   プロジェクトの .claude/skills/ に汎用スキルファイル（SKILL.md）を配置する。
+#   プロジェクトの .claude/settings.json に権限設定を配置する。
 #   既に同名ファイルが存在する場合はスキップする（--force で上書き）。
 #
 
@@ -50,6 +51,8 @@ done
 for skill in commit pr; do
   install_file "$BASE_URL/.claude/skills/$skill/SKILL.md" ".claude/skills/$skill/SKILL.md"
 done
+
+install_file "$BASE_URL/.claude/settings.json" ".claude/settings.json"
 
 echo ""
 echo "Done: $installed installed, $skipped skipped"

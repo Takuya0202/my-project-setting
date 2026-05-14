@@ -1,0 +1,72 @@
+# Git: 破壊的操作を禁止
+prefix_rule(
+    pattern = ["git", "push", "--force"],
+    decision = "forbidden",
+    justification = "force push は不可逆なため禁止",
+)
+prefix_rule(
+    pattern = ["git", "push", "-f"],
+    decision = "forbidden",
+    justification = "force push は不可逆なため禁止",
+)
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "forbidden",
+    justification = "hard reset は不可逆なため禁止",
+)
+prefix_rule(
+    pattern = ["git", "add", "."],
+    decision = "forbidden",
+    justification = "一括ステージングは機密ファイルを含む恐れがある",
+)
+prefix_rule(
+    pattern = ["git", "add", "-A"],
+    decision = "forbidden",
+    justification = "一括ステージングは機密ファイルを含む恐れがある",
+)
+
+# Git: 確認が必要な操作
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "push は確認が必要",
+)
+prefix_rule(
+    pattern = ["git", "checkout"],
+    decision = "prompt",
+    justification = "checkout は未ステージ変更を消去する可能性がある",
+)
+
+# セキュリティ・破壊的操作を禁止
+prefix_rule(
+    pattern = ["sudo"],
+    decision = "forbidden",
+    justification = "特権昇格は禁止",
+)
+prefix_rule(
+    pattern = ["npm", "publish"],
+    decision = "forbidden",
+    justification = "誤公開防止",
+)
+
+# 外部リクエスト・ファイル操作は確認
+prefix_rule(
+    pattern = ["curl"],
+    decision = "prompt",
+    justification = "外部リクエストは確認が必要",
+)
+prefix_rule(
+    pattern = ["wget"],
+    decision = "prompt",
+    justification = "外部リクエストは確認が必要",
+)
+prefix_rule(
+    pattern = ["rm"],
+    decision = "prompt",
+    justification = "ファイル削除は確認が必要",
+)
+prefix_rule(
+    pattern = ["mv"],
+    decision = "prompt",
+    justification = "ファイル移動は確認が必要",
+)

@@ -8,6 +8,7 @@
 #
 # 概要:
 #   プロジェクトルートに AGENTS.md を、.agents/skills/ 以下にスキルを配置する。
+#   .codex/rules/ に実行権限ルール（Starlark形式）を配置する。
 #   既にファイルが存在する場合はスキップする（--force で上書き）。
 #
 
@@ -42,6 +43,7 @@ install_file() {
 install_file "codex/AGENTS.md"                        "AGENTS.md"
 install_file ".agents/skills/commit/SKILL.md"         ".agents/skills/commit/SKILL.md"
 install_file ".agents/skills/pr/SKILL.md"             ".agents/skills/pr/SKILL.md"
+install_file ".codex/rules/default.rules"             ".codex/rules/default.rules"
 
 echo ""
 echo "Done: $INSTALLED installed, $SKIPPED skipped"
