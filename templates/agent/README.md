@@ -65,7 +65,7 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 
 ## Codex
 
-Codex向けの汎用ルールとワークフローをプロジェクトルートの`AGENTS.md`に配置する。
+Codex向けの汎用ルールをプロジェクトルートの`AGENTS.md`に、スキルを`.agents/skills/`に配置する。
 
 ### 使い方
 
@@ -85,7 +85,9 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 
 | 配置先 | 内容 |
 | --- | --- |
-| `AGENTS.md` | コーディング・セキュリティ・Gitルール・ワークフロー（commit / pr）を統合した1ファイル |
+| `AGENTS.md` | コーディング・セキュリティ・Gitルールを統合した1ファイル |
+| `.agents/skills/commit/SKILL.md` | ステージされた変更をconventional commits形式でコミットする |
+| `.agents/skills/pr/SKILL.md` | 現在のブランチの変更をもとにPRの説明文を作成する |
 
 ## 共通の動作
 
