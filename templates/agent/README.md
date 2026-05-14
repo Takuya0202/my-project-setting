@@ -92,6 +92,43 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 | `.agents/skills/pr/SKILL.md` | 現在のブランチの変更をもとにPRの説明文を作成する |
 | `.codex/rules/default.rules` | 実行権限ルール（Starlark形式、allow / prompt / forbidden） |
 
+## グローバル設定
+
+プロジェクト単位ではなく、マシン全体に適用したい場合は各ツールのグローバルパスに直接配置する。
+権限設定のみ対象（ルールとスキルはプロジェクトごとに配置するのが適切）。
+
+### Claude Code
+
+グローバルパス: `~/.claude/settings.json`
+
+```sh
+mkdir -p ~/.claude
+curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.claude/settings.json \
+  -o ~/.claude/settings.json
+```
+
+### Cursor
+
+グローバルパス: `~/.cursor/cli-config.json`（プロジェクトの `cli.json` とはファイル名が異なる）
+
+```sh
+mkdir -p ~/.cursor
+curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.cursor/cli.json \
+  -o ~/.cursor/cli-config.json
+```
+
+### Codex
+
+グローバルパス: `~/.codex/rules/default.rules`
+
+```sh
+mkdir -p ~/.codex/rules
+curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.codex/rules/default.rules \
+  -o ~/.codex/rules/default.rules
+```
+
+---
+
 ## 共通の動作
 
 - 同名ファイルが既にある場合はスキップ（上書きしない）
