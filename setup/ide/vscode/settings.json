@@ -9,7 +9,7 @@
   "editor.formatOnSave": true,
   "editor.autoClosingBrackets": "always",
   "editor.quickSuggestions": {
-    "strings": true
+    "strings": true,
   },
   "editor.renderWhitespace": "boundary",
   "explorer.fileNesting.enabled": false,
@@ -18,11 +18,20 @@
   "js/ts.suggest.autoImports": true,
   "js/ts.preferences.importModuleSpecifier": "shortest",
   "js/ts.preferences.importModuleSpecifierEnding": "minimal",
-  "workbench.colorTheme": "Default Dark+",
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false
-  }
+  "workbench.colorTheme": "Dark+",
+  // copilot 無効
+  "chat.disableAIFeatures": true,
+  // "github.copilot.enable": {
+  //   "*": true,
+  //   "plaintext": false,
+  //   "markdown": false,
+  //   "scminput": false,
+  // },
+  "workbench.iconTheme": "vscode-icons",
+  "claudeCode.preferredLocation": "panel",
+  "chat.viewSessions.orientation": "stacked",
+  "aws.cloudformation.telemetry.enabled": true,
+  "docker.extension.enableComposeLanguageServer": false,
+  "workbench.browser.openLocalhostLinks": false,
+  "aws.telemetry": false,
 }
