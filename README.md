@@ -63,15 +63,18 @@ my-project-setting/
         │       └── security.md
         ├── codex/                 # Codex向け設定（AGENTS.md競合回避）
         │   └── AGENTS.md
-        ├── install-cursor.sh
-        ├── install-claude.sh
-        └── install-codex.sh
+        ├── install-cursor.sh       # POSIX sh
+        ├── install-cursor.ps1      # PowerShell
+        ├── install-claude.sh       # POSIX sh
+        ├── install-claude.ps1      # PowerShell
+        ├── install-codex.sh        # POSIX sh
+        └── install-codex.ps1       # PowerShell
 ```
 
 ## agent
 
 AIエージェント（Cursor, Claude Code, Codex）向けの汎用設定テンプレートを管理する。
-ミラー方式で各ツールの設定を保持し、`install-<tool>.sh`で展開する。
+ミラー方式で各ツールの設定を保持し、`install-<tool>.sh`（POSIX sh）または `install-<tool>.ps1`（Windows PowerShell）で展開する。
 
 詳細は [templates/agent/README.md](templates/agent/README.md) を参照。
 

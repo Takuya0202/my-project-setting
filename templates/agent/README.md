@@ -3,7 +3,7 @@
 ## 概要
 
 AIエージェント（Cursor, Claude Code, Codex）向けの汎用設定テンプレートを管理する。
-テンプレートはターゲットプロジェクトのディレクトリ構造をそのままミラーしており、`install-<tool>.sh`で展開する。
+テンプレートはターゲットプロジェクトのディレクトリ構造をそのままミラーしており、macOS/Linux(WSL2) では `install-<tool>.sh`、Windows PowerShell では `install-<tool>.ps1` で展開する。
 
 ## Cursor
 
@@ -17,10 +17,20 @@ Cursor向けの汎用ルール（`.mdc`）・スキル・権限設定をプロ�
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-cursor.sh | sh
 ```
 
+Windows PowerShell の場合:
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-cursor.ps1 | iex
+```
+
 既存ファイルを上書きする場合:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-cursor.sh | sh -s -- --force
+```
+
+```powershell
+& ([scriptblock]::Create((iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-cursor.ps1).Content)) -Force
 ```
 
 ### 配置されるファイル
@@ -47,10 +57,20 @@ Claude Code向けの汎用ルール（`.md`）とスキルをプロジェクト�
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-claude.sh | sh
 ```
 
+Windows PowerShell の場合:
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-claude.ps1 | iex
+```
+
 既存ファイルを上書きする場合:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-claude.sh | sh -s -- --force
+```
+
+```powershell
+& ([scriptblock]::Create((iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-claude.ps1).Content)) -Force
 ```
 
 ### 配置されるファイル
@@ -77,10 +97,20 @@ Codex向けの汎用ルールをプロジェクトルートの`AGENTS.md`に、�
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-codex.sh | sh
 ```
 
+Windows PowerShell の場合:
+
+```powershell
+iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-codex.ps1 | iex
+```
+
 既存ファイルを上書きする場合:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-codex.sh | sh -s -- --force
+```
+
+```powershell
+& ([scriptblock]::Create((iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/install-codex.ps1).Content)) -Force
 ```
 
 ### 配置されるファイル
@@ -107,6 +137,13 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
   -o ~/.claude/settings.json
 ```
 
+Windows PowerShell の場合:
+
+```powershell
+New-Item -ItemType Directory -Path "$HOME/.claude" -Force | Out-Null
+iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.claude/settings.json -OutFile "$HOME/.claude/settings.json"
+```
+
 ### Cursor
 
 グローバルパス: `~/.cursor/cli-config.json`（プロジェクトの `cli.json` とはファイル名が異なる）
@@ -117,6 +154,13 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
   -o ~/.cursor/cli-config.json
 ```
 
+Windows PowerShell の場合:
+
+```powershell
+New-Item -ItemType Directory -Path "$HOME/.cursor" -Force | Out-Null
+iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.cursor/cli.json -OutFile "$HOME/.cursor/cli-config.json"
+```
+
 ### Codex
 
 グローバルパス: `~/.codex/rules/default.rules`
@@ -125,6 +169,13 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 mkdir -p ~/.codex/rules
 curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.codex/rules/default.rules \
   -o ~/.codex/rules/default.rules
+```
+
+Windows PowerShell の場合:
+
+```powershell
+New-Item -ItemType Directory -Path "$HOME/.codex/rules" -Force | Out-Null
+iwr -useb https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/templates/agent/.codex/rules/default.rules -OutFile "$HOME/.codex/rules/default.rules"
 ```
 
 ---

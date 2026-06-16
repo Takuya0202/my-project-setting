@@ -47,9 +47,12 @@ templates/agent/
 │       └── default.rules
 ├── codex/                     # Codex向けルール（AGENTS.md競合回避のためサブディレクトリ）
 │   └── AGENTS.md
-├── install-cursor.sh          # Cursor用インストールスクリプト
-├── install-claude.sh          # Claude Code用インストールスクリプト
-└── install-codex.sh           # Codex用インストールスクリプト
+├── install-cursor.sh          # Cursor用インストールスクリプト（POSIX sh）
+├── install-cursor.ps1         # Cursor用インストールスクリプト（PowerShell）
+├── install-claude.sh          # Claude Code用インストールスクリプト（POSIX sh）
+├── install-claude.ps1         # Claude Code用インストールスクリプト（PowerShell）
+├── install-codex.sh           # Codex用インストールスクリプト（POSIX sh）
+└── install-codex.ps1          # Codex用インストールスクリプト（PowerShell）
 ```
 
 ## 設計方針
@@ -61,12 +64,13 @@ templates/agent/
 `.claude/rules/coding.md` は、ターゲットの `.claude/rules/coding.md` に配置される。
 Codexのみ `AGENTS.md` がテンプレートドキュメントと競合するため `codex/` サブディレクトリに格納する。
 
-### install-<tool>.sh
+### install-<tool>.sh / install-<tool>.ps1
 
-- ツールごとにインストールスクリプトを分ける（`install-cursor.sh`, `install-claude.sh`, `install-codex.sh`）
-- POSIX sh互換で記述し、bash / zsh / sh いずれでも実行可能にする
-- `curl`経由でパイプ実行される想定（`curl ... | sh`）
-- 既存ファイルがある場合はスキップし、上書きしない
+- ツールごとにインストールスクリプトを分ける（`install-cursor`, `install-claude`, `install-codex`）
+- 各ツールごとに POSIX sh 版（`.sh`）と PowerShell 版（`.ps1`）を併設する。両者は同一の責務・同一の挙動を持つ
+- `.sh` は POSIX sh互換で記述し、bash / zsh / sh いずれでも実行可能にする。`curl`経由でパイプ実行される想定（`curl ... | sh`）
+- `.ps1` は Windows PowerShell から `iwr ... | iex` で実行される想定。`-Force` で既存ファイルを上書きする
+- 既存ファイルがある場合はスキップし、上書きしない（`.sh` は `--force`、`.ps1` は `-Force` で上書き）
 
 ## 対応ツール
 
