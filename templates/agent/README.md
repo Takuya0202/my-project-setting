@@ -42,8 +42,8 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 | `.cursor/rules/git.mdc` | push制御、コミットメッセージ日本語、破壊的操作の禁止 |
 | `.cursor/rules/coding.mdc` | 既存規約への追従、変更スコープの制限、自明コメントの禁止 |
 | `.cursor/rules/commands.mdc` | 破壊的シェルコマンド・特権昇格・グローバルインストール・システム操作の禁止 |
-| `.cursor/skills/commit/SKILL.md` | ステージされた変更をconventional commits形式でコミットする |
-| `.cursor/skills/pr/SKILL.md` | 現在のブランチの変更をもとにPRの説明文を作成する |
+| `.cursor/skills/commit/SKILL.md` | 未ステージも含めた変更を関心ごとに分割コミット案として提示し、承認後に順にコミットする |
+| `.cursor/skills/pr/SKILL.md` | 現在のブランチをレビュー観点で評価し、適切なら説明文を生成、過大なら分割方針を先に提示する |
 
 ## Claude Code
 
@@ -82,8 +82,8 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 | `.claude/rules/git.md` | push制御、コミットメッセージ日本語、破壊的操作の禁止 |
 | `.claude/rules/coding.md` | 既存規約への追従、変更スコープの制限、自明コメントの禁止 |
 | `.claude/rules/commands.md` | 破壊的シェルコマンド・特権昇格・グローバルインストール・システム操作の禁止 |
-| `.claude/skills/commit/SKILL.md` | ステージされた変更をconventional commits形式でコミットする |
-| `.claude/skills/pr/SKILL.md` | 現在のブランチの変更をもとにPRの説明文を作成する |
+| `.claude/skills/commit/SKILL.md` | 未ステージも含めた変更を関心ごとに分割コミット案として提示し、承認後に順にコミットする |
+| `.claude/skills/pr/SKILL.md` | 現在のブランチをレビュー観点で評価し、適切なら説明文を生成、過大なら分割方針を先に提示する |
 
 ## Codex
 
@@ -118,8 +118,8 @@ curl -fsSL https://raw.githubusercontent.com/Takuya0202/my-project-setting/main/
 | 配置先 | 内容 |
 | --- | --- |
 | `AGENTS.md` | コーディング・セキュリティ・Gitルールを統合した1ファイル |
-| `.agents/skills/commit/SKILL.md` | ステージされた変更をconventional commits形式でコミットする |
-| `.agents/skills/pr/SKILL.md` | 現在のブランチの変更をもとにPRの説明文を作成する |
+| `.agents/skills/commit/SKILL.md` | 未ステージも含めた変更を関心ごとに分割コミット案として提示し、承認後に順にコミットする |
+| `.agents/skills/pr/SKILL.md` | 現在のブランチをレビュー観点で評価し、適切なら説明文を生成、過大なら分割方針を先に提示する |
 | `.codex/rules/default.rules` | 実行権限ルール（Starlark形式、allow / prompt / forbidden） |
 
 ## グローバル設定
